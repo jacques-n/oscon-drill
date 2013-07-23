@@ -1,0 +1,43 @@
+package oscon.example;
+
+option java_package = "org.apache.drill.oscon";
+option java_outer_classname = "ExampleProtos";
+
+enum ExampleRpcType {
+  SUBMIT_VECTOR = 0;
+  SUBMIT_BUNDLE = 1;
+  RESPONSE_VECTOR = 2;
+  RESPONSE_BUNDLE = 3;
+  HANDSHAKE = 4;
+}
+
+enum NodeMode {
+  CLIENT = 0;
+  SERVER = 1;
+}
+  
+message Handshake{
+  optional int64 version = 1;
+  optional NodeMode mode = 2;
+}
+
+message SubmitVectorMessage {
+  optional int32 value_count = 2;
+}
+
+message ResponseVectorMessage {
+  optional int32 value_count = 2;
+}
+
+message SubmitBundledMessage {
+  repeated AddMessage message = 1;
+}
+
+message ResponseBundledMessage {
+  repeated int32 message = 1;
+}
+
+message AddMessage {
+  optional int32 a = 1;
+  optional int32 b = 2;
+}

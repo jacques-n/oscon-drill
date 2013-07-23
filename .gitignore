@@ -4,3 +4,8 @@
 *.jar
 *.war
 *.ear
+.buildpath
+.classpath
+.project
+compile/.settings
+vectors/.settings
